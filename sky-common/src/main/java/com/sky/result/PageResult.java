@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 封装分页查询结果
+ * AllArgsConstructor可以自动生成有参数的构造方法
  */
 @Data
 @AllArgsConstructor
