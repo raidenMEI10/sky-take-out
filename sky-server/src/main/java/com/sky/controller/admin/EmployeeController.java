@@ -88,6 +88,7 @@ public class EmployeeController {
         employeeService.save(employeeDTO);
         return Result.success();//没有向前端传输的东西，因此参数值为空
     }
+
     @GetMapping("/page")
     @ApiOperation("员工分页查询")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
@@ -95,6 +96,14 @@ public class EmployeeController {
        PageResult pageResult =  employeeService.pageQuery(employeePageQueryDTO);
 
        return Result.success(pageResult); //向前端传输result
+    }
+
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用禁用员工账号")
+    public Result startOrStop(@PathVariable Integer status,Long id){//加pathvariable是因为status是路径参数
+        log.info("启用禁用员工账号：{}，{}",status,id);
+        employeeService.startOrStop(status,id);
+        return Result.success();//这里只用发送一个成功通知即可
     }
 
 }
