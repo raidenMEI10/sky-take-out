@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import java.io.ByteArrayInputStream;
 
+//阿里云OSS传输文件类
 @Data
 @AllArgsConstructor
 @Slf4j
