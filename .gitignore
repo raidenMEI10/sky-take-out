@@ -4,6 +4,6 @@
 *.class
 *Test.java
 *AliYunAccessKey.csv
-*/src/main/resources/application.yml
-*/src/main/resources/application-dev.yml
+/sky-server/src/main/resources/application.yml
+/sky-server/src/main/resources/application-dev.yml
 **/test/
