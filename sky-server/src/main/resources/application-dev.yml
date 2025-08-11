@@ -11,3 +11,7 @@ sky:
     port: 6379
     password: 123456
     database: 10 #指定redis中的某一个数据库，一共15个
+  wechat:
+    appid: wx4c9dd42893c25d76
+    secret: 2cf3e92ceef5d8a916997eecd20a882a
+

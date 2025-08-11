@@ -42,3 +42,15 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+
+
+    wechat:
+      appid: ${sky.wechat.appid}
+      secret: ${sky.wechat.secret}
+    #设置jwt前面加密时的密钥
+    user-secret-key: itheima
+    #设置jwt过期时间
+    user-ttl: 7200000
+    #设置前端传递过来令牌名称
+    user-token-name: authentication
+

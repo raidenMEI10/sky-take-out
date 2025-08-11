@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController("userShopController")
 @RequestMapping("/user/shop")
 @Api(tags = "店铺相关接口")
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class ShopController {
 
     public static final String KEY = "SHOP_STATUS";
+
     @Autowired
     private RedisTemplate redisTemplate;
 
