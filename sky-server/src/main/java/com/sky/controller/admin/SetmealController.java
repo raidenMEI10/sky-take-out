@@ -8,9 +8,12 @@ import com.sky.service.SetmealService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.implementation.bytecode.collection.ArrayAccess;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -55,6 +58,21 @@ public class SetmealController {
     @ApiOperation("批量删除套餐")
     public Result delete(@RequestParam List<Long> ids){
         setmealService.deleteBatch(ids);
+        return Result.success();
+    }
+
+    /**
+     * 启用或停用套餐
+     *
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @CacheEvict(cacheNames = "setmealCache", allEntries = true)
+    public Result<String> startOrStop(@PathVariable Integer status, Long id) {
+        log.info("启用或停用套餐，status：{}，id：{}", status, id);
+        setmealService.startOrStop(status, id);
         return Result.success();
     }
 }
